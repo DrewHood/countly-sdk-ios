@@ -444,10 +444,14 @@ NSString* const kCountlyMetricKeyInstalledWatchApp  = @"_installed_watch_app";
 
 + (BOOL)isJailbroken
 {
-    FILE *f = fopen("/bin/bash", "r");
-    BOOL isJailbroken = (f != NULL);
-    fclose(f);
-    return isJailbroken;
+    return FALSE;
+    
+    // I think the below is in violation of App Review Guideline 2.5.2. /bin/bash is outside the app container.
+    
+//    FILE *f = fopen("/bin/bash", "r");
+//    BOOL isJailbroken = (f != NULL);
+//    fclose(f);
+//    return isJailbroken;
 }
 
 + (BOOL)isInBackground
